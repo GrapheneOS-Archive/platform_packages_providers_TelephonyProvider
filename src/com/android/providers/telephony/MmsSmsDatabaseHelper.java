@@ -1658,6 +1658,12 @@ public class MmsSmsDatabaseHelper extends SQLiteOpenHelper {
                 db.endTransaction();
             }
             // fall through
+        case 67:
+            if (currentVersion <= 67) {
+                return;
+            }
+            // 67 was adding RcsProvider, but that was removed.
+            return;
         }
 
         Log.e(TAG, "Destroying all old data.");
